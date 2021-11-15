@@ -5,7 +5,6 @@ import models.Employee;
 import java.util.Scanner;
 
 public class UserInputHandler {
-
     static Scanner scanner = new Scanner(System.in);
 
     public static Employee getEmployeeFromUser() {
@@ -19,14 +18,14 @@ public class UserInputHandler {
         return new Employee(firstName, lastName, salary);
     }
 
-    public static MenuSelectionsHandler getMenuOptionFromUser() {
-        return MenuSelectionsHandler.values()[getSelectedOptionFromUser() - 1];
+    public static MenuSelectionHandler getMenuOptionFromUser() {
+        return MenuSelectionHandler.values()[getSelectedOptionFromUser() - 1];
     }
 
     private static int getSelectedOptionFromUser() {
         int result = getIntegerFromUser();
         scanner.nextLine();
-        if (result > 0 && result < MenuSelectionsHandler.values().length + 1) {
+        if (result > 0 && result < MenuSelectionHandler.values().length + 1) {
             return result;
         } else {
             System.out.println("You selected non exiting option: " + result);

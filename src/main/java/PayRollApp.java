@@ -1,11 +1,9 @@
 import handlers.MenuHandler;
 import handlers.UserInputHandler;
-import models.EmployeeDatabase;
 
 public class PayRollApp {
     public static void main(String[] args) {
 
-        EmployeeDatabase employeeDatabase = new EmployeeDatabase();
         boolean quit = false;
         MenuHandler.startEmployeeDatabase();
         MenuHandler.printMenu();
@@ -14,18 +12,15 @@ public class PayRollApp {
 
             switch (UserInputHandler.getMenuOptionFromUser()) {
                 case PRINTSUMOFSALARIES:
-                    employeeDatabase.printSumOfAllEmployeesSalaries();
-                    MenuHandler.printMenu();
+                    MenuHandler.printSumOfAllEmployeesSalary();
                     break;
 
                 case PRINTALLEMPLOYEESDATA:
-                    employeeDatabase.printAllEmployeesInformations();
-                    MenuHandler.printMenu();
+                    MenuHandler.printAllEmployeesInfo();
                     break;
 
                 case ADDNEWEMPLOYEE:
-                    employeeDatabase.addNewEmployee(UserInputHandler.getEmployeeFromUser());
-                    MenuHandler.printMenu();
+                    MenuHandler.addNewEmployee();
                     break;
 
                 case QUIT:

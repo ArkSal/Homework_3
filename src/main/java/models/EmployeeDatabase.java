@@ -21,8 +21,8 @@ public class EmployeeDatabase {
     }
 
     public void printSumOfAllEmployeesSalaries() {
-        Integer summarysalary = employees.stream().map(x -> x.getSalary()).reduce(0, Integer::sum);
-        System.out.println("Sum of all employees salary is: " + summarysalary);
+        Integer sumOfSalaries = employees.stream().map(x -> x.getSalary()).reduce(0, Integer::sum);
+        System.out.println("Sum of all employees salary is: " + sumOfSalaries);
     }
 
     public void printAllEmployeesInformations() {

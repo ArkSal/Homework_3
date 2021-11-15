@@ -3,7 +3,6 @@ package handlers;
 import models.EmployeeDatabase;
 
 public class MenuHandler {
-
     private static EmployeeDatabase employeeDatabase = new EmployeeDatabase();
 
     public static final void startEmployeeDatabase() {
@@ -22,5 +21,20 @@ public class MenuHandler {
                 "3 - to add new employee\n" +
                 "4 - to shutdown");
         System.out.println("Choose your action:     ");
+    }
+
+    public static final void printSumOfAllEmployeesSalary(){
+        employeeDatabase.printSumOfAllEmployeesSalaries();
+        printMenu();
+    }
+
+    public static final void printAllEmployeesInfo(){
+        employeeDatabase.printAllEmployeesInformations();
+        printMenu();
+    }
+
+    public static final void addNewEmployee(){
+        employeeDatabase.addNewEmployee(UserInputHandler.getEmployeeFromUser());
+        printMenu();
     }
 }

@@ -1,6 +1,6 @@
 package handlers;
 
-public enum MenuSelectionsHandler {
+public enum MenuSelectionHandler {
     PRINTSUMOFSALARIES(1),
     PRINTALLEMPLOYEESDATA(2),
     ADDNEWEMPLOYEE(3),
@@ -8,7 +8,7 @@ public enum MenuSelectionsHandler {
 
     int action;
 
-    MenuSelectionsHandler(int action) {
+    MenuSelectionHandler(int action) {
         this.action = action;
     }
 }

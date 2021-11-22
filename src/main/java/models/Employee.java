@@ -1,9 +1,9 @@
 package models;
 
 public class Employee {
-    private String firstName;
-    private String lastName;
-    private int salary;
+    private final String firstName;
+    private final String lastName;
+    private final int salary;
 
     public Employee(String firstName, String lastName, int salary) {
         this.firstName = firstName;

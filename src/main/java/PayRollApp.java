@@ -1,26 +1,28 @@
-import handlers.MenuHandler;
+import handlers.DatabaseHandler;
+import handlers.Menu;
 import handlers.UserInputHandler;
+import models.EmployeeDatabase;
 
 public class PayRollApp {
-    public static void main(String[] args) {
 
-        boolean quit = false;
-        MenuHandler.startEmployeeDatabase();
-        MenuHandler.printMenu();
-        while (!quit) {
+    public static void main(String[] args) {
+        EmployeeDatabase employeeDatabase = new EmployeeDatabase();
+        DatabaseHandler.fillEmployeeDatabase(employeeDatabase);
+
+        while (true) {
+            Menu.print();
             System.out.println("\nEnter action: ");
 
             switch (UserInputHandler.getMenuOptionFromUser()) {
                 case PRINTSUMOFSALARIES:
-                    MenuHandler.printSumOfAllEmployeesSalary();
+                    employeeDatabase.printSumOfAllEmployeesSalaries();
                     break;
-
                 case PRINTALLEMPLOYEESDATA:
-                    MenuHandler.printAllEmployeesInfo();
+                    employeeDatabase.printAllEmployeesInformations();
                     break;
 
                 case ADDNEWEMPLOYEE:
-                    MenuHandler.addNewEmployee();
+                    employeeDatabase.addNewEmployee(UserInputHandler.getEmployeeFromUser(employeeDatabase));
                     break;
 
                 case QUIT:

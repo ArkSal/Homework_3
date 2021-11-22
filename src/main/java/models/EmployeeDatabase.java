@@ -9,19 +9,13 @@ public class EmployeeDatabase {
         employees = new ArrayList<>();
     }
 
-    public boolean addNewEmployee(Employee employee) {
-        if (isEmployeeAlreadyInList(employee.getFirstName(), employee.getLastName())) {
-            System.out.println("Emloyee cannot be added. He is already in list.");
-            return false;
-        } else {
-            employees.add(employee);
-            System.out.println("Employee successfully added.");
-            return true;
-        }
+    public void addNewEmployee(Employee employee) {
+        employees.add(employee);
+        System.out.println("Employee successfully added.");
     }
 
     public void printSumOfAllEmployeesSalaries() {
-        Integer sumOfSalaries = employees.stream().map(x -> x.getSalary()).reduce(0, Integer::sum);
+        int sumOfSalaries = employees.stream().mapToInt(Employee::getSalary).sum();
         System.out.println("Sum of all employees salary is: " + sumOfSalaries);
     }
 
@@ -31,7 +25,11 @@ public class EmployeeDatabase {
         }
     }
 
-    private boolean isEmployeeAlreadyInList(String firstName, String lastName) {
-        return employees.stream().anyMatch(employee -> employee.getFirstName().equals(firstName) && employee.getLastName().equals(lastName));
+    public boolean hasEmployee(Employee employeeToAdd) {
+        return employees
+                .stream()
+                .anyMatch(employee ->
+                        employee.getFirstName().equals(employeeToAdd.getFirstName())
+                                && employee.getLastName().equals(employeeToAdd.getLastName()));
     }
 }
